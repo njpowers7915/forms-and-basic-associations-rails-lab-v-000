@@ -23,7 +23,7 @@ RSpec.describe Song, type: :model do
       song.artist_name = 'Rock Hudson'
       expect(song.artist.name).to eq 'Rock Hudson'
     end
-  end  
+  end
 
   describe 'artist_name' do
     it 'returns the artist name' do
@@ -40,7 +40,7 @@ RSpec.describe Song, type: :model do
       expect(song.note_contents).to eq ['hi', 'there']
     end
   end
-  
+
   describe 'note_contents=' do
     it 'sets notes for a song' do
       song = Song.new
@@ -58,12 +58,11 @@ RSpec.describe Song, type: :model do
       expect(song.notes.map(&:content)).to eq notes
       notes << 'wow'
       song.note_contents = ['wow']
-      expect(song.notes.map(&:content)).to eq notes      
+      expect(song.notes.map(&:content)).to eq notes
     end
     it 'ignores blank notes' do
       song = Song.new
       song.note_contents = ['', "i'm all alone", '', '']
       expect(song.note_contents).to eq ["i'm all alone"]
-    end    
+    end
   end
-
